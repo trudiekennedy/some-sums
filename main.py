@@ -4,16 +4,17 @@ import time
 # Captures player's name
 name = input("What is your name? ")
 
-# A list of positive affirmations to praise correct answers
+# A list of positive affirmations to praise correct answers and provide encouragement.
 positive_vibes = ["Nice one, ", "Wowee! You're on fire, ", "Got it one, ", "By gum! You're good, ", "Good stuff, ",
                   "Are you sure you're not using a calculator?! Great work, ", "You've been practising, "]
 encouraging_vibes = ["Oof! Unlucky, ", "Hit the post with that, ", "Keep trying, ", "Close - try again, ",
                      "You can do it! Have another go, ", "This one's tough, but you can work it out, "]
 
+# Functions for gameplay. 
 
 def generate_question():
     """This function randomly generates the arithmetic questions: for addition and subtraction, numbers used will be
-    between 1 & 100; for division and multiplication, numbers will be between 1 & 12 to support what an 8-year-old
+    between 1 & 100; for division and multiplication, numbers will be between 1 & 12 to support what a 9-year-old
     will have covered in Maths.
     Returns: question and answer of a maths problem to be used in the quiz"""
 
@@ -133,7 +134,6 @@ def play_game():
             print(f"Don't be like that, {name}! Give me a number greater than 0!")
     
     # Stores scores and duration of game.
-    
     scores = []
     durations = []
 
@@ -162,6 +162,5 @@ def play_game():
         print(f"\nGood job {name}! Your total score is {total_score}.")
         print(f"Thanks for playing -"
               f" it took you {minutes:.0f} minutes and {seconds:.0f} seconds to complete this game!")
-
 
 play_game()
