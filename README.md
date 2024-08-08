@@ -6,8 +6,9 @@ Unlike my niece, quick-fire arithmetic was never my strong-suit.
 
 # Inventory 
 This script, main.py, is a simple quiz that asks 5 arithmetic questions per round. The user can define the number of rounds they want to play.
-The addition and subtraction questions are based on numbers up to 100.
-The multiplication and division questions go up to the 12-times table. 
+To cover what a 9-year-old might have learnt so far:
+- The addition and subtraction questions are based on numbers up to 100.
+- The multiplication and division questions go up to the 12-times table. 
 
 ## Installation
 To use this script, you will need Python 3 installed on your machine. You can download the latest version of Python from the official Python website.
