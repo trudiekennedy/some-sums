@@ -1,0 +1,1 @@
+from game_functions.questions import generate_question, ask_question
