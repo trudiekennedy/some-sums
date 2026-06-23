@@ -3,6 +3,7 @@ Functions associated with creating and asking questions.
 Utilises random package to generate Math questions. 
 '''
 import random
+from data_files.vibes import vibes
 
 def generate_question():
     """This function randomly generates the arithmetic questions: for addition and subtraction, numbers used will be
@@ -39,3 +40,40 @@ def generate_question():
 
     question = f"What is {num1} {op} {num2}?"
     return question, answer
+
+
+def ask_question(question, answer, name):
+    """Asks the user to input the answer to the question and compares the user answer with the answer. User has
+    3 attempts to answer the problem and will get a score dependent on which attempt they answer.
+    Returns: a score for the question."""
+    attempts = 0
+    score = 0
+    while attempts < 3:
+        user_answer = input(f"{question} ")
+
+        # Will only allow an integer as an answer: raises error if not.
+        try:
+            user_answer = int(user_answer)
+        except ValueError:
+            print("Invalid input! Please enter a number.")
+            continue
+
+        # Determines the score based on the number of attempts. Gives varied responses to user depending on attempts.
+        if user_answer == answer:
+            if attempts == 0:
+                score = 10
+                print(f"{random.choice(vibes.get('positive_vibes'))}{name}! 10 points to you!")
+            elif attempts == 1:
+                score = 5
+                print("Good job! 5 points!")
+            else:
+                score = 1
+                print(f"You got it, {name}! Have a point!")
+            break
+        else:
+            attempts += 1
+            if attempts < 3:
+                print(f"{random.choice(vibes.get('encouraging_vibes'))}{name}!")
+    if attempts == 3:
+        print(f"The correct answer was {answer}.")
+    return score
