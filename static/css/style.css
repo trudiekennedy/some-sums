@@ -1,0 +1,159 @@
+:root {
+  --bg: #fff4e6;
+  --accent: #ff6f91;
+  --accent-dark: #d6336c;
+  --correct: #2f9e44;
+  --incorrect: #e03131;
+  --text: #343a40;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.site-header {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.site-header h1 {
+  color: var(--accent-dark);
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.tagline {
+  color: var(--text);
+  margin: 0.25rem 0 0;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+form input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  border: 2px solid #ddd;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.7rem 1.4rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+
+button:hover {
+  background: var(--accent-dark);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  color: var(--incorrect);
+  font-weight: bold;
+}
+
+.counters {
+  color: #868e96;
+  margin-bottom: 0.25rem;
+}
+
+.score {
+  font-weight: bold;
+  margin-top: 0;
+}
+
+#question-text {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+  color: var(--accent-dark);
+}
+
+.feedback {
+  min-height: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.play-again {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: white;
+  background: var(--accent);
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.play-again:hover {
+  background: var(--accent-dark);
+}
+
+.correct-pulse {
+  animation: pulse 0.5s ease;
+  color: var(--correct);
+}
+
+.incorrect-shake {
+  animation: shake 0.4s ease;
+  color: var(--incorrect);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}

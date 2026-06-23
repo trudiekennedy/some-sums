@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card"
+     id="quiz"
+     data-current-round="{{ current_round }}"
+     data-rounds-requested="{{ rounds_requested }}"
+     data-current-question-num="{{ current_question_num }}"
+     data-questions-per-round="{{ questions_per_round }}">
+  <p class="counters">
+    Round <span id="round-num">{{ current_round }}</span> of {{ rounds_requested }} &mdash;
+    Question <span id="question-num">{{ current_question_num }}</span> of {{ questions_per_round }}
+  </p>
+  <p class="score">Score this round: <span id="score-display">{{ round_score }}</span></p>
+
+  <h2 id="question-text">{{ question_text }}</h2>
+
+  <form id="answer-form">
+    <input type="number" id="answer-input" autocomplete="off" autofocus required>
+    <button type="submit" id="answer-submit">Submit</button>
+  </form>
+
+  <p id="feedback" class="feedback"></p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}

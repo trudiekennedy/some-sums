@@ -42,6 +42,17 @@ def generate_question():
     return question, answer
 
 
+def score_for_attempt(attempts):
+    """Maps the number of attempts already used (0, 1, or 2) to the points awarded
+    for a correct answer: 10 on the first attempt, 5 on the second, 1 on the third."""
+    if attempts == 0:
+        return 10
+    elif attempts == 1:
+        return 5
+    else:
+        return 1
+
+
 def ask_question(question, answer, name):
     """Asks the user to input the answer to the question and compares the user answer with the answer. User has
     3 attempts to answer the problem and will get a score dependent on which attempt they answer.
@@ -60,14 +71,12 @@ def ask_question(question, answer, name):
 
         # Determines the score based on the number of attempts. Gives varied responses to user depending on attempts.
         if user_answer == answer:
+            score = score_for_attempt(attempts)
             if attempts == 0:
-                score = 10
                 print(f"{random.choice(vibes.get('positive_vibes'))}{name}! 10 points to you!")
             elif attempts == 1:
-                score = 5
                 print("Good job! 5 points!")
             else:
-                score = 1
                 print(f"You got it, {name}! Have a point!")
             break
         else:

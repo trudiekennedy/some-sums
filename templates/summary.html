@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+  {% if rounds_requested > 1 %}
+    <h2>That was awesome sauce, {{ name }}!</h2>
+    <p>Your average score across {{ rounds_requested }} rounds was {{ "%.2f"|format(avg_score) }}.</p>
+  {% else %}
+    <h2>Good job, {{ name }}!</h2>
+    <p>Your total score is {{ total_score }}.</p>
+  {% endif %}
+  <p>Thanks for playing!</p>
+  <a class="play-again" href="{{ url_for('index') }}">Play again</a>
+</div>
+{% endblock %}
